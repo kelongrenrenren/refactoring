@@ -28,8 +28,7 @@ public class StatementPrinter {
                 new StringBuilder("Statement for " + invoice.getCustomer() + System.lineSeparator());
 
         for (Performance p : invoice.getPerformances()) {
-            Play play = getPlay(p);
-
+            final Play play = getPlay(p);
 
             // print line for this order
             result.append(String.format("  %s: %s (%s seats)%n",
@@ -68,7 +67,7 @@ public class StatementPrinter {
 
     private int getAmount(Performance performance) {
         int result = 0;
-        Play play = getPlay(performance);
+        final Play play = getPlay(performance);
 
         switch (play.getType()) {
             case "tragedy":
